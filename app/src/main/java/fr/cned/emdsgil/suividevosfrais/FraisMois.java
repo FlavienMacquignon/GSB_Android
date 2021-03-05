@@ -14,7 +14,7 @@ class FraisMois implements Serializable {
     private Integer km; // nombre de km du mois
     private Integer nuitee; // nombre de nuitées du mois
     private Integer repas; // nombre de repas du mois
-    private final ArrayList<FraisHf> lesFraisHf; // liste des frais hors forfait du mois
+    private  ArrayList<FraisHf> lesFraisHf; // liste des frais hors forfait du mois
 
     public FraisMois(Integer annee, Integer mois) {
         this.annee = annee;
@@ -99,6 +99,9 @@ class FraisMois implements Serializable {
 
     public ArrayList<FraisHf> getLesFraisHf() {
         return lesFraisHf;
+    }
+    public void setLesFraisHf(ArrayList<FraisHf> lesFraisHf){
+        this.lesFraisHf=lesFraisHf;
     }
 
 }

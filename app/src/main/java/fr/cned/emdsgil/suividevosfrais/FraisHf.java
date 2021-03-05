@@ -1,6 +1,7 @@
 package fr.cned.emdsgil.suividevosfrais;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Classe métier contenant la description d'un frais hors forfait
@@ -30,4 +31,18 @@ class FraisHf  implements Serializable {
 		return jour;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		FraisHf fraisHf = (FraisHf) o;
+		return Objects.equals(montant, fraisHf.montant) &&
+				Objects.equals(motif, fraisHf.motif) &&
+				Objects.equals(jour, fraisHf.jour);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(montant, motif, jour);
+	}
 }
