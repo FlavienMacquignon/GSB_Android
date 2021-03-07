@@ -6,6 +6,7 @@
     <string name="icon_frais_hf">Icone pour les frais hors forfait</string>
     <string name="icon_recap_frais_hf">Icone pour le récapitulatif des frais hors forfait</string>
     <string name="icon_frais_km">Icone pour les frais kilométriques</string>
+    <string name="icon_transfert">Icone pour transférer les frais vers la Base de Données</string>
     <string name="euro">€</string>
     <string name="ajouter">Ajouter</string>
     <string name="km">Km</string>
@@ -21,6 +22,7 @@
     <string name="title_frais_nuitee">Frais nuitée</string>
     <string name="title_frais_repas"> Frais de repas</string>
     <string name="title_frais_etape"> Frais d\'étape</string>
+    <string name="title_transfert">Transférer les Frais</string>
     <string name="motif">Motif :</string>
     <string name="montant">Montant :</string>
     <string name="icone_frais_km">Icone des frais kilométriques</string>
