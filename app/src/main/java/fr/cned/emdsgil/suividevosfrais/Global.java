@@ -19,7 +19,8 @@ abstract class Global {
 
     // fichier contenant les informations sérialisées
     public static final String filename = "save.fic";
-
+    public static final String login="";
+    public static final String password="";
     /**
      * Modification de l'affichage de la date (juste le mois et l'année, sans le jour)
      */
