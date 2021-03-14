@@ -7,6 +7,7 @@ import fr.cned.emdsgil.suividevosfrais.tools.AsyncResponse;
 
 public class AcessDistant implements AsyncResponse {
 
+    //FIXME changer l'adresse du serveur ici
     public static final String SERVERADRESS="https://flavien.educationhost.cloud:3306";
 
     @Override
@@ -24,9 +25,11 @@ public class AcessDistant implements AsyncResponse {
         }
     }
 
-    public void envoi(String operation, JSONArray lesdonneesJSON){
+    public void envoi(String login, String hashedPassword,String operation, JSONArray lesdonneesJSON){
         AccessHTTP accessDonnees= new AccessHTTP();
         accessDonnees.delegate= this;
+        accessDonnees.addParam("login", login);
+        accessDonnees.addParam("hashedPassword", hashedPassword);
         accessDonnees.addParam("operation", operation);
         accessDonnees.addParam("lesdonnes", lesdonneesJSON.toString());
         accessDonnees.execute(SERVERADRESS);

@@ -88,12 +88,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // envoi les informations sérialisées vers le serveur
                 // en construction
-                if(Global.login !="" && Global.password!=""){
-                    // TODO faire le transfert
-                }
-                else{
-                    // TODO demander login/pass
-                }
+                cmdMenu_clic(((ImageButton) findViewById(R.id.cmdTransfert)), LoginActivity.class);
             }
         });
     }
