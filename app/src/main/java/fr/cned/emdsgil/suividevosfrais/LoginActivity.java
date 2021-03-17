@@ -1,12 +1,14 @@
 package fr.cned.emdsgil.suividevosfrais;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import org.json.JSONArray;
+import com.google.gson.Gson;
+import java.util.Hashtable;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -19,23 +21,16 @@ public class LoginActivity extends AppCompatActivity {
         loginListener(findViewById(R.id.btnLogin));
     }
 
-    private fraisEntry [] retrieveData (){
-        fraisEntry[] data= new fraisEntry[4];
-        //TODO etendre l'array fraisEntry en fonction de la longueur des FraisHF
+    private String hashToJson (){
 
-        return data;
+        Hashtable<?, ?> monHash = (Hashtable<?, ?>) Serializer.deSerialize(this);
+        Gson gson = new Gson();
+        String json= gson.toJson(monHash);
+        Log.d("MonHash ************************", json);
+        return json;
     }
 
-    private String hashPassword (String password){
-        String hashedPassword = "";
-        //TODO hash le mot de passe ici
-        return hashedPassword;
-    }
-    private JSONArray dataToJson (fraisEntry [] dataFrais){
-        JSONArray dataAsJSON = new JSONArray();
-        // TODO transformer les data en JSONArray
-        return dataAsJSON;
-    }
+
     private void loginListener(Button button) {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -44,11 +39,9 @@ public class LoginActivity extends AppCompatActivity {
                 String login = String.valueOf(loginfield.getText());
                 final EditText passwordField = (EditText) findViewById(R.id.passWord);
                 String password = String.valueOf(passwordField.getText());
-                fraisEntry[] lesFrais= retrieveData();
-                JSONArray lesFraisJSON = dataToJson(lesFrais);
-                String hashedPassword= hashPassword(password);
-                AcessDistant acessDistant= new AcessDistant();
-                acessDistant.envoi(login, hashedPassword, "ADD",  lesFraisJSON);
+                String lesFraisJSON = hashToJson();
+                // AcessDistant acessDistant= new AcessDistant();
+                // acessDistant.envoi(login, password, "ADD",  lesFraisJSON);
             }
         });
     }
