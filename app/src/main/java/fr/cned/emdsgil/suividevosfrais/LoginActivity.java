@@ -40,8 +40,9 @@ public class LoginActivity extends AppCompatActivity {
                 final EditText passwordField = (EditText) findViewById(R.id.passWord);
                 String password = String.valueOf(passwordField.getText());
                 String lesFraisJSON = hashToJson();
-                // AcessDistant acessDistant= new AcessDistant();
-                // acessDistant.envoi(login, password, "ADD",  lesFraisJSON);
+                AcessDistant acessDistant= new AcessDistant();
+                acessDistant.envoi(login, password, "ADD",  lesFraisJSON, getApplicationContext());
+
             }
         });
     }
